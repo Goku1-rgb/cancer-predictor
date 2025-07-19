@@ -13,7 +13,7 @@ scaler = joblib.load("scaler.save")
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 
-dataset = pd.read_csv("C:/Users/gokul/Downloads/cancer.csv")
+dataset = pd.read_csv("cancer.csv")
 
 x = dataset.drop(columns=["diagnosis(1=m, 0=b)"])
 y = dataset["diagnosis(1=m, 0=b)"]
@@ -29,7 +29,7 @@ for feature in feature_names:
     val = st.number_input(f"Enter the value for {feature}:")
     input_data.append(val)
 
-print(feature_names)
+
 
 if st.button("Predict"):
     x_input = np.array(input_data).reshape(1, -1)
