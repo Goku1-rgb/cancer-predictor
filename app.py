@@ -9,7 +9,8 @@ from tensorflow.keras.models import load_model
 
 
 
-scaler = joblib.load("scaler.save")
+scaler = StandardScaler()
+joblib.load("scaler.save")
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 
@@ -19,7 +20,7 @@ x = dataset.drop(columns=["diagnosis(1=m, 0=b)"])
 y = dataset["diagnosis(1=m, 0=b)"]
 
 model=load_model("cancer_model.h5")
-st.title("Cancer Diagnosinosis Predictor")
+st.title("Cancer Diagnosis Predictor")
 st.write("Enter the patient's data to get a prediction.")
 input_data = []
 feature_names = list(x.columns)
