@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import streamlit as st
-
+import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import load_model
 
@@ -18,8 +18,7 @@ scaler = StandardScaler()
 scaler.fit(x)  # ✅ Fit scaler from your dataset
 
 # Load model
-model = load_model("cancer_model.keras", compile =False)
-
+model = tf.keras.models.load_model("cancer_model",compile=False)
 # Streamlit UI
 st.title("Cancer Diagnosis Predictor")
 st.write("Enter the patient's data to get a prediction.")
