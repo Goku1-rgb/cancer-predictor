@@ -40,4 +40,4 @@ test_loss, test_acc = model.evaluate(x_test_scaled, y_test)
 print(f"Test accuracy: {test_acc:.4f}")
 
 # Save model
-model.save("cancer_model", save_format="tf")
+model.save("cancer_model.keras")
