@@ -21,7 +21,7 @@ x_train_scaled = scaler.fit_transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
 # Save scaler for later use in inference
-scaler = joblib.load("scaler.save")
+joblib.dump(scaler, "scaler.save")
 
 # Build model
 model = tf.keras.models.Sequential([

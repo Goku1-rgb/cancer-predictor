@@ -3,8 +3,10 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import tensorflow as tf
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import load_model
+import joblib
+
 
 # Turn off ONEDNN optimizations for numerical consistency
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
@@ -14,8 +16,9 @@ dataset = pd.read_csv("cancer.csv")
 x = dataset.drop(columns=["diagnosis(1=m, 0=b)"])
 y = dataset["diagnosis(1=m, 0=b)"]
 
-scaler = StandardScaler()
-scaler.fit(x)  # ✅ Fit scaler from your dataset
+scaler = joblib.load("scaler.save")
+#scaler = StandardScaler()
+#scaler.fit(x)  # ✅ Fit scaler from your dataset
 
 # Load model
 try:
