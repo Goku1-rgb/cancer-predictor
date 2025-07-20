@@ -18,7 +18,7 @@ scaler = StandardScaler()
 scaler.fit(x)  # ✅ Fit scaler from your dataset
 
 # Load model
-model = load_model("cancer_model.h5")
+model = load_model("cancer_model.keras")
 
 # Streamlit UI
 st.title("Cancer Diagnosis Predictor")
