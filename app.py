@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import streamlit as st
-
+import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import load_model
 
@@ -18,9 +18,12 @@ scaler = StandardScaler()
 scaler.fit(x)  # ✅ Fit scaler from your dataset
 
 # Load model
-model = load_model("cancer_model.keras", compile =False)
-
-# Streamlit UI
+try:
+    model = load_model("cancer_model.h5", compile =True)
+    print("Model loaded")
+except Exception as e:
+    print("Error loading model:")
+    print(e)# Streamlit UI
 st.title("Cancer Diagnosis Predictor")
 st.write("Enter the patient's data to get a prediction.")
 
@@ -39,3 +42,5 @@ if st.button("Predict"):
     diagnosis = "Malignant" if prediction > 0.5 else "Benign"
 
     st.success(f"Prediction: {diagnosis} ({prediction:.2f})")
+print("Tensorflow version:", tf.__version__)
+print("Files in current directory:", os.listdir())

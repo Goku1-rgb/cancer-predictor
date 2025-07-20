@@ -21,7 +21,7 @@ x_train_scaled = scaler.fit_transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
 # Save scaler for later use in inference
-joblib.dump(scaler, "../../Downloads/scaler.save")
+scaler = joblib.load("scaler.save")
 
 # Build model
 model = tf.keras.models.Sequential([
@@ -40,4 +40,5 @@ test_loss, test_acc = model.evaluate(x_test_scaled, y_test)
 print(f"Test accuracy: {test_acc:.4f}")
 
 # Save model
-model.save("cancer_model.keras")
+model.save("cancer_model.h5")
+print(tf.__version__)
