@@ -19,7 +19,7 @@ scaler.fit(x)  # ✅ Fit scaler from your dataset
 
 # Load model
 try:
-    model = load_model("cancer_model.h5", compile =True)
+    model = load_model("cancer_model.keras", compile =False)
     print("Model loaded")
 except Exception as e:
     print("Error loading model:")
