@@ -33,7 +33,7 @@ model = tf.keras.models.Sequential([
 model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 
 # Train model
-model.fit(x_train_scaled, y_train, epochs=10, validation_split=0.2)
+model.fit(x_train_scaled, y_train, epochs=500, validation_split=0.2)
 
 # Optionally evaluate on test set
 test_loss, test_acc = model.evaluate(x_test_scaled, y_test)
